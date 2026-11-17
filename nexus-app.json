@@ -1,0 +1,254 @@
+{
+  "name": "OrçaVolta — Gestão de orçamentos e retornos",
+  "description": "MVP para prestadores de serviços organizarem clientes, registrarem orçamentos e acompanharem retornos comerciais. Com login Nexus, cadastros privados, busca, criação, edição e exclusão. Foco em instaladores, eletricistas e assistências técnicas; contatos e atualização dos resultados são manuais.",
+  "kind": "saas",
+  "html": "",
+  "collections": [
+    {
+      "key": "clientes",
+      "name": "Clientes",
+      "fields": [
+        {
+          "key": "nome",
+          "label": "Nome do cliente",
+          "type": "text",
+          "required": true,
+          "options": []
+        },
+        {
+          "key": "telefone",
+          "label": "Telefone / WhatsApp com DDD",
+          "type": "text",
+          "required": true,
+          "options": []
+        },
+        {
+          "key": "email",
+          "label": "E-mail",
+          "type": "email",
+          "required": false,
+          "options": []
+        },
+        {
+          "key": "bairro_cidade",
+          "label": "Bairro e cidade",
+          "type": "text",
+          "required": false,
+          "options": []
+        },
+        {
+          "key": "origem",
+          "label": "Origem do contato",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Indicação",
+            "WhatsApp",
+            "Instagram",
+            "Google",
+            "Cliente recorrente",
+            "Outro"
+          ]
+        },
+        {
+          "key": "observacoes",
+          "label": "Observações sobre o cliente",
+          "type": "text",
+          "required": false,
+          "options": []
+        }
+      ]
+    },
+    {
+      "key": "orcamentos",
+      "name": "Orçamentos",
+      "fields": [
+        {
+          "key": "codigo",
+          "label": "Código do orçamento (ex.: ORC-001)",
+          "type": "text",
+          "required": true,
+          "options": []
+        },
+        {
+          "key": "cliente_referencia",
+          "label": "Nome e telefone do cliente (referência manual)",
+          "type": "text",
+          "required": true,
+          "options": []
+        },
+        {
+          "key": "servico",
+          "label": "Serviço solicitado",
+          "type": "text",
+          "required": true,
+          "options": []
+        },
+        {
+          "key": "escopo",
+          "label": "Descrição do serviço e itens incluídos",
+          "type": "text",
+          "required": true,
+          "options": []
+        },
+        {
+          "key": "valor",
+          "label": "Valor proposto (R$)",
+          "type": "number",
+          "required": true,
+          "options": []
+        },
+        {
+          "key": "data_orcamento",
+          "label": "Data do orçamento",
+          "type": "date",
+          "required": true,
+          "options": []
+        },
+        {
+          "key": "validade",
+          "label": "Validade da proposta",
+          "type": "date",
+          "required": false,
+          "options": []
+        },
+        {
+          "key": "etapa",
+          "label": "Etapa comercial",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Em elaboração",
+            "Enviado",
+            "Aguardando resposta",
+            "Em negociação",
+            "Aprovado",
+            "Perdido",
+            "Cancelado"
+          ]
+        },
+        {
+          "key": "proximo_retorno",
+          "label": "Data do próximo contato manual",
+          "type": "date",
+          "required": false,
+          "options": []
+        },
+        {
+          "key": "proxima_acao",
+          "label": "Próxima ação comercial",
+          "type": "text",
+          "required": false,
+          "options": []
+        },
+        {
+          "key": "condicoes_pagamento",
+          "label": "Condições de pagamento propostas",
+          "type": "text",
+          "required": false,
+          "options": []
+        },
+        {
+          "key": "motivo_perda",
+          "label": "Motivo de perda, se aplicável",
+          "type": "select",
+          "required": false,
+          "options": [
+            "Preço",
+            "Prazo",
+            "Escolheu concorrente",
+            "Desistiu do serviço",
+            "Sem resposta",
+            "Outro"
+          ]
+        },
+        {
+          "key": "observacoes",
+          "label": "Observações da negociação",
+          "type": "text",
+          "required": false,
+          "options": []
+        }
+      ]
+    },
+    {
+      "key": "acompanhamentos",
+      "name": "Histórico de contatos",
+      "fields": [
+        {
+          "key": "orcamento_referencia",
+          "label": "Código do orçamento (referência manual)",
+          "type": "text",
+          "required": true,
+          "options": []
+        },
+        {
+          "key": "cliente_referencia",
+          "label": "Nome do cliente",
+          "type": "text",
+          "required": true,
+          "options": []
+        },
+        {
+          "key": "data_contato",
+          "label": "Data do contato",
+          "type": "date",
+          "required": true,
+          "options": []
+        },
+        {
+          "key": "canal",
+          "label": "Canal utilizado",
+          "type": "select",
+          "required": true,
+          "options": [
+            "WhatsApp",
+            "Ligação",
+            "E-mail",
+            "Presencial",
+            "Instagram",
+            "Outro"
+          ]
+        },
+        {
+          "key": "resultado",
+          "label": "Resultado do contato",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Sem resposta",
+            "Pediu mais informações",
+            "Pediu alteração no orçamento",
+            "Vai decidir depois",
+            "Aprovou",
+            "Recusou"
+          ]
+        },
+        {
+          "key": "resumo",
+          "label": "Resumo da conversa",
+          "type": "text",
+          "required": true,
+          "options": []
+        },
+        {
+          "key": "retorno_combinado",
+          "label": "Data de retorno combinada (registro manual)",
+          "type": "date",
+          "required": false,
+          "options": []
+        }
+      ]
+    }
+  ],
+  "pending": [
+    "Cobrança de assinaturas, checkout, planos, limites por plano e gestão de inadimplência não estão implementados; dependem de integração de pagamentos e backend adicional.",
+    "Login independente da conta Nexus, onboarding público e estrutura comercial de empresas, equipes e permissões não estão implementados.",
+    "Envio de WhatsApp ou e-mail, mensagens automáticas, lembretes e notificações de retornos vencidos não estão implementados; os contatos são manuais.",
+    "Dashboard, cálculo de conversão, somatórios financeiros e identificação automática de orçamentos sem resposta não estão disponíveis neste runtime.",
+    "Relacionamentos automáticos entre clientes, orçamentos e histórico não estão implementados; as referências são textuais e preenchidas manualmente.",
+    "Geração automática de códigos únicos, propostas em PDF, links públicos de aprovação e assinatura eletrônica não estão implementadas.",
+    "As datas do histórico não atualizam automaticamente o próximo retorno do orçamento; o usuário precisa manter os dois registros manualmente.",
+    "Landing page pública, domínio próprio, analytics de aquisição, exportação e implantação independente não fazem parte desta versão."
+  ]
+}
